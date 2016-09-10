@@ -3,6 +3,7 @@ package com.rnlocalnotificationssample;
 import android.app.Application;
 import android.util.Log;
 
+import android.content.Intent; // <--- Import Intent
 import com.facebook.react.ReactApplication;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.facebook.react.ReactInstanceManager;
@@ -25,7 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ReactNativePushNotificationPackage()
+            new ReactNativePushNotificationPackage() // <---- Add the Package
       );
     }
   };

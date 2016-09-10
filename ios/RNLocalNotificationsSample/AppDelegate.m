@@ -11,11 +11,23 @@
 
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
+#import "LocalNotifications.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  
+  LocalNotifications *localNotificationsManager = [[LocalNotifications alloc] initWithDefault];
+  
+  localNotificationsManager.notificationsEnabled = YES;
+  
+  [localNotificationsManager registerNotification];
+  [localNotificationsManager scheduleLocalNotification];
+  
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios"
@@ -37,54 +49,23 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   
-  // Notifications:
-  [self registerNotification];
-  [self scheduleNotification];
-  
   return YES;
 }
 
-
-
-- (void)registerNotification {
-  UIUserNotificationType types =  UIUserNotificationTypeBadge |
-  UIUserNotificationTypeSound |
-  UIUserNotificationTypeAlert;
-  
-  UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types
-                                                                             categories:nil
-                                            ];
-  
-  [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
-}
-
-
-- (void) scheduleNotification {
-  UILocalNotification *notification = [[UILocalNotification alloc] init];
-  
-  //  notification.fireDate = [[NSDate date] dateByAddingTimeInterval:60*60*24];
-  notification.fireDate = [[NSDate date] dateByAddingTimeInterval:60];
-  notification.alertBody = @"1 minute passed then this notification came";
-  
-  // this will schedule the notification to fire at the fire date
-  [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-  
-  // this will fire the notification right away, it will still also fire at the date we set
-  //  [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-}
 
 
 -(void) cancelAllLocalNotifications {
   [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
-
+// your code here will be executed when taped on a received a local notification:
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
   [self showNotificationAlert:@"hello world"
                     withTitle:@"Test local notification"];
 }
 
+// just for example
 - (void)showNotificationAlert:(NSString*)message withTitle:(NSString *)title{
   dispatch_async(dispatch_get_main_queue(), ^{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title

@@ -2,13 +2,32 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+}                           from 'react-native';
+import {
+  LocalNotificationsManager
+}                           from '../common/bridge';
+
+LocalNotificationsManager.enableLocalNotifications();
+LocalNotificationsManager.registerNotification();
+
 
 class RNLocalNotificationsSample extends Component {
+  componentDidMount() {
+    LocalNotificationsManager.showLocalNotification(
+      'title from JS',
+      'body from JS'
+    );
+
+    LocalNotificationsManager.scheduleLocalNotification(
+      'title from JS',
+      'body from JS',
+      10
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>

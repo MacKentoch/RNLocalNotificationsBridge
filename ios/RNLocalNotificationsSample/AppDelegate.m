@@ -18,19 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  ////////////////////////////////////////////////////////////////////////////////////////////
-  
+ 
+  //////////////////////////////////////////////////////////////////////////
+  // instanciate localNotificationsManager:
   _localNotificationsManager = [[LocalNotifications alloc] initWithDefault];
+  //////////////////////////////////////////////////////////////////////////
   
-  _localNotificationsManager.notificationsEnabled = YES;
-  
-  [_localNotificationsManager registerNotification];
-
-  [_localNotificationsManager scheduleLocalNotification:@"Test notification"
-                                                  body:@"This is a local notification"
-                                   secondsBeforeAppear:10];
-  
-  ////////////////////////////////////////////////////////////////////////////////////////////
   
   NSURL *jsCodeLocation;
 
@@ -56,11 +49,6 @@
   return YES;
 }
 
-
-
--(void) cancelAllLocalNotifications {
-  [[UIApplication sharedApplication] cancelAllLocalNotifications];
-}
 
 // your code here will be executed when taped on a received a local notification:
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification

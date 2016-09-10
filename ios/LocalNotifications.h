@@ -39,8 +39,10 @@
 // cancel all local notifications
 -(void) cancelAllLocalNotifications;
 
-// schedule a local notification: define a title, a notificationBody thne how many seconds from now to mak eit appear
+// schedule a local notification (define a title, a body and how many seconds from now before apearing)
 -(void) scheduleLocalNotification: (NSString *) title body:(NSString *) body secondsBeforeAppear: (int) seconds;
 
+// show an immediate local notification (define a title, a body)
+-(void) showLocalNotification: (NSString *) title body:(NSString *) body;
 
 @end

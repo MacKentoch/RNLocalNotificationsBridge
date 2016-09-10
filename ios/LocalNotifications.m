@@ -44,8 +44,8 @@
   UIUserNotificationTypeAlert;
   
   UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types
-                                                                             categories:nil
-                                            ];
+                                                                             categories:nil];
+
   [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
 }
 
@@ -60,16 +60,15 @@
 
 
 
-
-// schedule a local notification (define a title, a body)
+// schedule a local notification (define a title, a body and how many seconds from now before apearing)
 -(void) scheduleLocalNotification: (NSString *) title body:(NSString *) body secondsBeforeAppear: (int) seconds {
   UILocalNotification *notification = [[UILocalNotification alloc] init];
   
   NSString *notificationTitle = title;
-  if (!title) { notificationTitle = @"Please define a noification title"; }
+  if (!title) { notificationTitle = @"Please define a notification title"; }
   
   NSString *notificationBody = body;
-  if (!body) { notificationBody = @"Please define a noification body"; }
+  if (!body) { notificationBody = @"Please define a notification body"; }
   
   int notificationDelay = seconds;
   if (!title) { notificationDelay = 30; } // 30 seconds by default. as an example, 1 hour would be 60*60*24
@@ -79,13 +78,26 @@
   notification.alertTitle = notificationTitle;
   notification.alertBody = notificationBody;
   
-  // this will schedule the notification to fire at the fire date
   [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-  
-  // this will fire the notification right away, it will still also fire at the date we set
-  //  [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
+
+
+// show an immediate local notification (define a title, a body)
+-(void) showLocalNotification: (NSString *) title body:(NSString *) body  {
+  UILocalNotification *notification = [[UILocalNotification alloc] init];
+  
+  NSString *notificationTitle = title;
+  if (!title) { notificationTitle = @"Please define a notification title"; }
+  
+  NSString *notificationBody = body;
+  if (!body) { notificationBody = @"Please define a notification body"; }
+  
+  notification.alertTitle = notificationTitle;
+  notification.alertBody = notificationBody;
+  
+  [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
 
 
 @end

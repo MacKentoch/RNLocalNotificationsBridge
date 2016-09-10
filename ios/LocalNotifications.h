@@ -12,29 +12,32 @@
 
 
 //////////////////////////////////
-//----- GENERAL PROPERTIES -----//
+//----- PROPERTIES -----//
 //////////////////////////////////
 
 // enable / disable notifications
 @property (nonatomic, assign) BOOL notificationsEnabled;
 
 
-///////////////////////////////////
-//----- METHODS             -----//
-///////////////////////////////////
 
-
+////////////////////
 //----- INIT -----//
-
+////////////////////
 -(id) initWithDefault;
 
 
-
+///////////////////////
 //----- METHODS -----//
+///////////////////////
 
+// disactive local notifications (WARNING all notification will be canceled)
+-(void) disableLocalNotifications;
+
+// active local notifications
+-(void) enableLocalNotifications;
 
 // IMPORTANT: prerequisite to enable notifications for your application (otherwise notifications won't fire)
--(void)registerNotification;
+-(void) registerNotification;
 
 // cancel all local notifications
 -(void) cancelAllLocalNotifications;

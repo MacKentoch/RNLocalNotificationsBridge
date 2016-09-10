@@ -37,6 +37,17 @@
 //----- METHODS -----//
 ///////////////////////
 
+// active local notifications
+-(void) enableLocalNotifications {
+  _notificationsEnabled = YES;
+}
+
+// disactive local notifications (WARNING all notification will be canceled)
+-(void) disableLocalNotifications {
+  _notificationsEnabled = NO;
+}
+
+
 // IMPORTANT: prerequisite to enable notifications for your application (otherwise notifications won't fire)
 -(void)registerNotification {
   UIUserNotificationType types =  UIUserNotificationTypeBadge |

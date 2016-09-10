@@ -16,23 +16,19 @@
 @implementation AppDelegate
 
 
-// set a global localNotificationsManager:
-LocalNotifications *localNotificationsManager;
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   ////////////////////////////////////////////////////////////////////////////////////////////
   
-  localNotificationsManager = [[LocalNotifications alloc] initWithDefault];
+  _localNotificationsManager = [[LocalNotifications alloc] initWithDefault];
   
-  localNotificationsManager.notificationsEnabled = YES;
+  _localNotificationsManager.notificationsEnabled = YES;
   
-  [localNotificationsManager registerNotification];
+  [_localNotificationsManager registerNotification];
 
-  [localNotificationsManager scheduleLocalNotification:@"Test notification"
+  [_localNotificationsManager scheduleLocalNotification:@"Test notification"
                                                   body:@"This is a local notification"
-                                   secondsBeforeAppear:30];
+                                   secondsBeforeAppear:10];
   
   ////////////////////////////////////////////////////////////////////////////////////////////
   
@@ -72,6 +68,9 @@ LocalNotifications *localNotificationsManager;
   NSString* title = notification.alertTitle;
   NSString* body = notification.alertBody;
   
+  // increment application badge number
+  application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1;
+  
   // here show an alert when  receiving a notification:
   [self showNotificationAlert:body
                     withTitle:title];
@@ -97,23 +96,18 @@ LocalNotifications *localNotificationsManager;
 }
 
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-  // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-  // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-  NSLog(@"%s", __PRETTY_FUNCTION__);
-  
-  application.applicationIconBadgeNumber = 0;
-}
+//- (void)applicationWillEnterForeground:(UIApplication *)application {
+//  // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+//  NSLog(@"%s", __PRETTY_FUNCTION__);
+//}
+
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
   // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-  
-  // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
   NSLog(@"%s", __PRETTY_FUNCTION__);
   
   application.applicationIconBadgeNumber = 0;
-  
-  //  [self cancelAllLocalNotifications];
+//  [localNotificationsManager cancelAllLocalNotifications];
   
 }
 

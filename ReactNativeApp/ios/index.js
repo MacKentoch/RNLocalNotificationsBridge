@@ -18,13 +18,14 @@ class RNLocalNotificationsSample extends Component {
   componentDidMount() {
     LocalNotificationsManager.showLocalNotification(
       'title from JS',
-      'body from JS'
+      'immediate local notification'
     );
 
+    const delayInSeconds = 10;
     LocalNotificationsManager.scheduleLocalNotification(
       'title from JS',
-      'body from JS',
-      10
+      `Notification after ${delayInSeconds} seconds`,
+      delayInSeconds
     );
   }
 

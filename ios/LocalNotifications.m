@@ -61,14 +61,10 @@
 }
 
 
-
-
-
 // cancel all local notifications
 -(void) cancelAllLocalNotifications {
   [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
-
 
 
 // schedule a local notification (define a title, a body and how many seconds from now before apearing)
@@ -91,7 +87,6 @@
   
   [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
-
 
 
 // show an immediate local notification (define a title, a body)

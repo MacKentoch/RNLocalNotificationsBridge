@@ -13,6 +13,12 @@
     "react-native-push-notification": "^2.0.2"
   },
   "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "eslint": "^3.5.0",
+    "eslint-plugin-react": "^6.2.0",
+    "eslint-plugin-react-native": "^2.0.0",
     "flow-bin": "^0.32.0"
   }
 }

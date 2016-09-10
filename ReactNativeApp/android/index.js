@@ -1,12 +1,12 @@
 // @flow
 
-import React, { Component } from 'react';
+import React, { Component }       from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View
-} from 'react-native';
+}                                 from 'react-native';
+import { configureNotifications } from './services'
 
 class RNLocalNotificationsSample extends Component {
   render() {

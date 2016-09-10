@@ -13,6 +13,7 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* RNLocalNotificationsSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RNLocalNotificationsSampleTests.m */; };
+		0D0EAEFF1D8426B000131D8E /* LocalNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0EAEFE1D8426B000131D8E /* LocalNotifications.m */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -106,17 +107,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = main.jsbundle; sourceTree = "<group>"; };
-		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = ../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj; sourceTree = "<group>"; };
-		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = ../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj; sourceTree = "<group>"; };
-		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = ../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj; sourceTree = "<group>"; };
-		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = ../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj; sourceTree = "<group>"; };
-		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = ../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj; sourceTree = "<group>"; };
+		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
+		00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
+		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
+		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
+		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* RNLocalNotificationsSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RNLocalNotificationsSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* RNLocalNotificationsSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNLocalNotificationsSampleTests.m; sourceTree = "<group>"; };
-		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = ../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj; sourceTree = "<group>"; };
-		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = ../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj; sourceTree = "<group>"; };
+		0D0EAEFD1D8426B000131D8E /* LocalNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotifications.h; sourceTree = "<group>"; };
+		0D0EAEFE1D8426B000131D8E /* LocalNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotifications.m; sourceTree = "<group>"; };
+		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
+		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* RNLocalNotificationsSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNLocalNotificationsSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = RNLocalNotificationsSample/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = RNLocalNotificationsSample/AppDelegate.m; sourceTree = "<group>"; };
@@ -124,9 +127,9 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RNLocalNotificationsSample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RNLocalNotificationsSample/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RNLocalNotificationsSample/main.m; sourceTree = "<group>"; };
-		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = ../node_modules/react-native/React/React.xcodeproj; sourceTree = "<group>"; };
-		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = ../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj; sourceTree = "<group>"; };
-		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = ../node_modules/react-native/Libraries/Text/RCTText.xcodeproj; sourceTree = "<group>"; };
+		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +244,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				0D0EAEFD1D8426B000131D8E /* LocalNotifications.h */,
+				0D0EAEFE1D8426B000131D8E /* LocalNotifications.m */,
 			);
 			name = RNLocalNotificationsSample;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
@@ -528,7 +534,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
-			showEnvVarsInLog = 1;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -545,6 +550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D0EAEFF1D8426B000131D8E /* LocalNotifications.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -606,13 +612,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
-				INFOPLIST_FILE = "RNLocalNotificationsSample/Info.plist";
+				INFOPLIST_FILE = RNLocalNotificationsSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -620,6 +627,8 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = RNLocalNotificationsSample;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNLocalNotificationsSample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -627,12 +636,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
-				INFOPLIST_FILE = "RNLocalNotificationsSample/Info.plist";
+				INFOPLIST_FILE = RNLocalNotificationsSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -640,6 +650,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = RNLocalNotificationsSample;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNLocalNotificationsSample-Bridging-Header.h";
 			};
 			name = Release;
 		};

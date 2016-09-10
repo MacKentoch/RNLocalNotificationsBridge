@@ -1,4 +1,4 @@
-import { configureNotifications } from './configureNotifications';
+import { configureNotifications } from './notifications';
 
 export {
   configureNotifications

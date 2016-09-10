@@ -19,8 +19,6 @@
 @property (nonatomic, assign) BOOL notificationsEnabled;
 
 
-
-
 ///////////////////////////////////
 //----- METHODS             -----//
 ///////////////////////////////////
@@ -41,8 +39,8 @@
 // cancel all local notifications
 -(void) cancelAllLocalNotifications;
 
-// schedule a local notification
--(void) scheduleLocalNotification;
+// schedule a local notification: define a title, a notificationBody thne how many seconds from now to mak eit appear
+-(void) scheduleLocalNotification: (NSString *) title body:(NSString *) body secondsBeforeAppear: (int) seconds;
 
 
 @end

@@ -24,7 +24,14 @@
   localNotificationsManager.notificationsEnabled = YES;
   
   [localNotificationsManager registerNotification];
-  [localNotificationsManager scheduleLocalNotification];
+
+  [localNotificationsManager scheduleLocalNotification:@"Test notification"
+                                                  body:@"This is a local notification"
+                                   secondsBeforeAppear:30];
+  
+//  [localNotificationsManager scheduleLocalNotification:@"Test notification"
+//                                      notificationBody:@"This is a local notification"
+//                                   secondsBeforeAppear:30];
   
   ////////////////////////////////////////////////////////////////////////////////////////////
   
@@ -61,7 +68,13 @@
 // your code here will be executed when taped on a received a local notification:
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-  [self showNotificationAlert:@"hello world"
+//  NSDictionary *dict = [notification userInfo];
+//  
+//  NSLog(dict);
+  
+  NSString* body = notification.alertBody;
+  
+  [self showNotificationAlert:body
                     withTitle:@"Test local notification"];
 }
 

@@ -14,7 +14,6 @@ import {
 LocalNotificationsManager.enableLocalNotifications();
 LocalNotificationsManager.registerNotification();
 
-
 class RNLocalNotificationsSample extends Component {
   componentDidMount() {
     LocalNotificationEvents.addListener(
@@ -23,13 +22,13 @@ class RNLocalNotificationsSample extends Component {
     );
 
     LocalNotificationsManager.showLocalNotification(
-      'title from JS',
+      'Immediate Notification',
       'immediate local notification'
     );
 
     const delayInSeconds = 10;
     LocalNotificationsManager.scheduleLocalNotification(
-      'title from JS',
+      'Schedule notification',
       `Notification after ${delayInSeconds} seconds`,
       delayInSeconds
     );

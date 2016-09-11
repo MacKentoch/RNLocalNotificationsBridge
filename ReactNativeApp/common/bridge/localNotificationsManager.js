@@ -1,4 +1,8 @@
-import { NativeModules, NativeEventEmitter } from 'react-native';
+import {
+  NativeModules,
+  NativeEventEmitter
+} from 'react-native';
 
 export const LocalNotificationsManager = NativeModules.LocalNotificationsBridge;
-export const LocalNotificationEvents = new NativeEventEmitter(NativeModules.LocalNotificationsBridge);
+
+export const LocalNotificationEvents = new NativeEventEmitter(LocalNotificationsManager);

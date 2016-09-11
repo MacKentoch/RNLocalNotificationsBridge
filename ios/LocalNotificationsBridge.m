@@ -87,7 +87,7 @@ RCT_EXPORT_MODULE();
     #endif
     
     [self sendEventWithName:@"onLocalNotification"
-                       body:@"message from native"];
+                       body:receivedDetails];
   }
 }
 

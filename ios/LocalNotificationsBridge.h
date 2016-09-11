@@ -15,7 +15,4 @@
 
 @interface LocalNotificationsBridge : RCTEventEmitter <RCTBridgeModule>
 
-//-(void) receivedLocalNotification:(UIApplication *)application
-//                            title: (NSString *) title
-//                             body: (NSString *) body;
 @end

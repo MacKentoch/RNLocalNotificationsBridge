@@ -1,5 +1,9 @@
-import { LocalNotificationsManager } from './localNotificationsManager';
+import {
+  LocalNotificationsManager,
+  LocalNotificationEvents
+} from './localNotificationsManager';
 
 export {
-  LocalNotificationsManager
+  LocalNotificationsManager,
+  LocalNotificationEvents
 };

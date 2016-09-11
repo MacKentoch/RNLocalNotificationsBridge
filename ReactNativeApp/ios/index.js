@@ -7,7 +7,8 @@ import {
   View
 }                           from 'react-native';
 import {
-  LocalNotificationsManager
+  LocalNotificationsManager,
+  LocalNotificationEvents
 }                           from '../common/bridge';
 
 LocalNotificationsManager.enableLocalNotifications();
@@ -16,6 +17,11 @@ LocalNotificationsManager.registerNotification();
 
 class RNLocalNotificationsSample extends Component {
   componentDidMount() {
+    LocalNotificationEvents.addListener(
+      'onLocalNotification',
+      this.onLocalNotification
+    );
+
     LocalNotificationsManager.showLocalNotification(
       'title from JS',
       'immediate local notification'

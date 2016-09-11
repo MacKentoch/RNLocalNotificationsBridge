@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIKit/UIKit.h"
+#import "RCTComponent.h"
 
 @interface LocalNotifications : NSObject
 
@@ -43,9 +45,17 @@
 -(void) cancelAllLocalNotifications;
 
 // schedule a local notification (define a title, a body and how many seconds from now before apearing)
--(void) scheduleLocalNotification: (NSString *) title body:(NSString *) body secondsBeforeAppear: (int) seconds;
+-(void) scheduleLocalNotification: (NSString *)title
+                             body: (NSString *)body
+              secondsBeforeAppear: (int) seconds;
 
 // show an immediate local notification (define a title, a body)
--(void) showLocalNotification: (NSString *) title body:(NSString *) body;
+-(void) showLocalNotification: (NSString *) title
+                         body: (NSString *) body;
+
+// called when received a local notification
+-(void) receivedLocalNotification:(UIApplication *)application
+                            title: (NSString *) title
+                             body: (NSString *) body;
 
 @end

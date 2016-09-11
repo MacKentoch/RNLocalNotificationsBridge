@@ -11,9 +11,8 @@
 
 @implementation LocalNotifications
 
-////////////////////
-//----- INIT -----//
-////////////////////
+
+#pragma mark - INIT
 
 -(id) initWithDefault {
   self = [super init];
@@ -23,9 +22,8 @@
   return self;
 }
 
-///////////////////////
-//----- SETTERS -----//
-///////////////////////
+
+#pragma mark - SETTERS
 
 -(void) setNotificationsEnabled:(BOOL)notificationsEnabled {
   if (notificationsEnabled == NO) {
@@ -33,9 +31,8 @@
   }
 }
 
-///////////////////////
-//----- METHODS -----//
-///////////////////////
+
+#pragma mark - METHODS
 
 // active local notifications
 -(void) enableLocalNotifications {
@@ -54,10 +51,10 @@
   UIUserNotificationTypeSound |
   UIUserNotificationTypeAlert;
   
-  UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types
-                                                                             categories:nil];
+  UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes: types
+                                                                             categories: nil];
 
-  [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+  [[UIApplication sharedApplication] registerUserNotificationSettings: mySettings];
 }
 
 
@@ -68,7 +65,9 @@
 
 
 // schedule a local notification (define a title, a body and how many seconds from now before apearing)
--(void) scheduleLocalNotification: (NSString *) title body:(NSString *) body secondsBeforeAppear: (int) seconds {
+-(void) scheduleLocalNotification: (NSString *) title
+                             body: (NSString *) body
+              secondsBeforeAppear: (int) seconds {
   UILocalNotification *notification = [[UILocalNotification alloc] init];
   
   NSString *notificationTitle = title;
@@ -81,16 +80,17 @@
   if (!title) { notificationDelay = 30; } // 30 seconds by default. as an example, 1 hour would be 60*60*24
   
   
-  notification.fireDate = [[NSDate date] dateByAddingTimeInterval:notificationDelay];
+  notification.fireDate = [[NSDate date] dateByAddingTimeInterval: notificationDelay];
   notification.alertTitle = notificationTitle;
   notification.alertBody = notificationBody;
   
-  [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+  [[UIApplication sharedApplication] scheduleLocalNotification: notification];
 }
 
 
 // show an immediate local notification (define a title, a body)
--(void) showLocalNotification: (NSString *) title body:(NSString *) body  {
+-(void) showLocalNotification: (NSString *) title
+                         body: (NSString *) body  {
   UILocalNotification *notification = [[UILocalNotification alloc] init];
   
   NSString *notificationTitle = title;
@@ -103,6 +103,15 @@
   notification.alertBody = notificationBody;
   
   [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+// called when received a local notification
+-(void) receivedLocalNotification:(UIApplication *)application
+                            title: (NSString *) title
+                             body: (NSString *) body {
+  
+  // increment application badge number
+  application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1;
 }
 
 

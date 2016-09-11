@@ -10,7 +10,6 @@
 #import "LocalNotifications.h"
 #import "UIKit/UIKit.h"
 #import "AppDelegate.h"
-
 #import "RCTLog.h"
 
 
@@ -19,9 +18,7 @@
 RCT_EXPORT_MODULE();
 
 
-////////////////////////////////
-//----- INNER METHODS    -----//
-////////////////////////////////
+#pragma mark - INNER METHODS
 
 // get reference to singleton appDelegate
 - (AppDelegate *) getAppDelegate {
@@ -30,9 +27,7 @@ RCT_EXPORT_MODULE();
 }
 
 
-////////////////////////////////
-//----- EXPORTED METHODS -----//
-////////////////////////////////
+#pragma mark - EXPORTED METHODS
 
 // disactive local notifications (WARNING all notification will be canceled)
 RCT_EXPORT_METHOD(enableLocalNotifications)

@@ -16,7 +16,7 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions: (NSDictionary *)launchOptions
 {
  
   //////////////////////////////////////////////////////////////////////////
@@ -56,13 +56,15 @@
   NSString* title = notification.alertTitle;
   NSString* body = notification.alertBody;
   
-  // increment application badge number
-  application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1;
+  [_localNotificationsManager receivedLocalNotification: application
+                                                  title: title
+                                                   body: body];
   
   // here show an alert when  receiving a notification:
   [self showNotificationAlert:body
                     withTitle:title];
 }
+
 
 // just for example
 - (void)showNotificationAlert:(NSString*)message withTitle:(NSString *)title{

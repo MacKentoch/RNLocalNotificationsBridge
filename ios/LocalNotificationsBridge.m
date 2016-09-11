@@ -13,6 +13,10 @@
 #import "RCTLog.h"
 
 
+#ifndef SHOW_RCTLOG
+#define SHOW_RCTLOG 0 // set 1 only for dev debug otherwise 0
+#endif
+
 @implementation LocalNotificationsBridge
 
 RCT_EXPORT_MODULE();
@@ -37,7 +41,11 @@ RCT_EXPORT_METHOD(enableLocalNotifications)
   LocalNotifications *localNotificationManager = appDelegate.localNotificationsManager;
   if (!localNotificationManager) {return; }
   
-  RCTLogInfo(@"'enable' local notifications");
+  #if SHOW_RCTLOG
+    RCTLogInfo(@"'enable' local notifications");
+  #endif
+  
+  
 
   localNotificationManager.notificationsEnabled = YES;
 }
@@ -50,7 +58,9 @@ RCT_EXPORT_METHOD(disableLocalNotifications)
   LocalNotifications *localNotificationManager = appDelegate.localNotificationsManager;
   if (!localNotificationManager) {return; }
   
-  RCTLogInfo(@"'disable' local notifications");
+  #if SHOW_RCTLOG
+    RCTLogInfo(@"'disable' local notifications");
+  #endif
   
   localNotificationManager.notificationsEnabled = NO;
 }
@@ -63,7 +73,9 @@ RCT_EXPORT_METHOD(registerNotification)
   LocalNotifications *localNotificationManager = appDelegate.localNotificationsManager;
   if (!localNotificationManager) {return; }
   
-  RCTLogInfo(@"'register local notifications'");
+  #if SHOW_RCTLOG
+    RCTLogInfo(@"'register local notifications'");
+  #endif
   
   [localNotificationManager registerNotification];
 }
@@ -76,7 +88,9 @@ RCT_EXPORT_METHOD(cancelAllLocalNotifications)
   LocalNotifications *localNotificationManager = appDelegate.localNotificationsManager;
   if (!localNotificationManager) {return; }
   
-  RCTLogInfo(@"'cancel all notifications'");
+  #if SHOW_RCTLOG
+    RCTLogInfo(@"'cancel all notifications'");
+  #endif
   
   [localNotificationManager cancelAllLocalNotifications];
 }
@@ -89,7 +103,9 @@ RCT_EXPORT_METHOD(scheduleLocalNotification: (NSString *) title body:(NSString *
   LocalNotifications *localNotificationManager = appDelegate.localNotificationsManager;
   if (!localNotificationManager) {return; }
   
-  RCTLogInfo(@"'schedule a local notification' with title: %@ and body: %@", title, body);
+  #if SHOW_RCTLOG
+    RCTLogInfo(@"'schedule a local notification' with title: %@ and body: %@", title, body);
+  #endif
   
   [localNotificationManager scheduleLocalNotification:title
                                                  body:body
@@ -105,8 +121,10 @@ RCT_EXPORT_METHOD(showLocalNotification: (NSString *) title body:(NSString *) bo
   LocalNotifications *localNotificationManager = appDelegate.localNotificationsManager;
   if (!localNotificationManager) {return; }
   
-  RCTLogInfo(@"'show instantly a local notification' with title: %@ and body: %@", title, body);
-  
+  #if SHOW_RCTLOG
+    RCTLogInfo(@"'show instantly a local notification' with title: %@ and body: %@", title, body);
+  #endif
+
   [localNotificationManager showLocalNotification:title
                                                  body:body];
 }

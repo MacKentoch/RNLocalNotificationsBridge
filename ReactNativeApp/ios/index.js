@@ -11,7 +11,6 @@ import {
   LocalNotificationEvents
 }                           from '../common/bridge';
 
-
 // IMPORTANT: notifications won't be able to work without registering application to notifications
 LocalNotificationsManager.registerNotification();
 
@@ -64,6 +63,7 @@ class RNLocalNotificationsSample extends Component {
       this.onLocalNotification
     );
 
+    // create demo notifications:
     this.createNotifications();
   }
 
@@ -146,7 +146,7 @@ class RNLocalNotificationsSample extends Component {
 
   onEnabeNotifications = () => {
     // NOTE: disable notification = cancel all pending notifications!
-    LocalNotificationsManager.disableLocalNotifications();
+    LocalNotificationsManager.enableLocalNotifications();
   }
 
   onDisableNotifications = () => {
@@ -201,7 +201,9 @@ const styles = StyleSheet.create({
   },
   notificationStatus: {
     flex:1,
-    fontSize: 11
+    fontSize: 11,
+    textAlign: 'right',
+    marginRight: 20
   }
 });
 

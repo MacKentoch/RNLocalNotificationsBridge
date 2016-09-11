@@ -136,7 +136,10 @@ RCT_EXPORT_METHOD(cancelAllLocalNotifications)
 }
 
 // schedule a local notification (define a title, a body and how many seconds from now before apearing)
-RCT_EXPORT_METHOD(scheduleLocalNotification: (NSString *) title body:(NSString *) body secondsBeforeAppear: (int) seconds)
+RCT_EXPORT_METHOD(scheduleLocalNotification: (NSString *) title
+                  body:(NSString *) body
+                  secondsBeforeAppear: (int) seconds
+                  userInfo: (NSDictionary *) userInfo)
 {
   AppDelegate *appDelegate = [self getAppDelegate];
   
@@ -149,12 +152,13 @@ RCT_EXPORT_METHOD(scheduleLocalNotification: (NSString *) title body:(NSString *
   
   [localNotificationManager scheduleLocalNotification:title
                                                  body:body
-                                  secondsBeforeAppear:seconds];
+                                  secondsBeforeAppear:seconds
+                                             userInfo:userInfo];
 }
 
 
 // show an immediate local notification (define a title, a body)
-RCT_EXPORT_METHOD(showLocalNotification: (NSString *) title body:(NSString *) body)
+RCT_EXPORT_METHOD(showLocalNotification: (NSString *) title body:(NSString *) body userInfo: (NSDictionary *) userInfo)
 {
   AppDelegate *appDelegate = [self getAppDelegate];
   
@@ -166,7 +170,8 @@ RCT_EXPORT_METHOD(showLocalNotification: (NSString *) title body:(NSString *) bo
   #endif
 
   [localNotificationManager showLocalNotification:title
-                                                 body:body];
+                                             body:body
+                                         userInfo:userInfo];
 }
 
 

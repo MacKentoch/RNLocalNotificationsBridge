@@ -106,7 +106,8 @@ class RNLocalNotificationsSample extends Component {
   createInstantNotification({id, title, body}) {
     LocalNotificationsManager.showLocalNotification(
       title,
-      body
+      body,
+      {id}
     );
   }
 
@@ -114,7 +115,8 @@ class RNLocalNotificationsSample extends Component {
     LocalNotificationsManager.scheduleLocalNotification(
       title,
       body,
-      delayInSeconds
+      delayInSeconds,
+      {id}
     );
   }
 
@@ -155,6 +157,7 @@ class RNLocalNotificationsSample extends Component {
   }
 
   onLocalNotification = (notification) => {
+    console.log('received notification: ', notification);
     AlertIOS.alert(
       notification.title,
       notification.body,

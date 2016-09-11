@@ -46,10 +46,12 @@
 // schedule a local notification (define a title, a body and how many seconds from now before apearing)
 -(void) scheduleLocalNotification: (NSString *)title
                              body: (NSString *)body
-              secondsBeforeAppear: (int) seconds;
+              secondsBeforeAppear: (int) seconds
+                         userInfo: (NSDictionary *) userInfo;
 
 // show an immediate local notification (define a title, a body)
 -(void) showLocalNotification: (NSString *) title
-                         body: (NSString *) body;
+                         body: (NSString *) body
+                     userInfo: (NSDictionary *) userInfo;
 
 @end

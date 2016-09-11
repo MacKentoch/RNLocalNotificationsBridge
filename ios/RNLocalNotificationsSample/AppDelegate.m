@@ -51,9 +51,11 @@
   // increment badge number:
   application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1;
   
+  
   NSDictionary *details = @{
                             @"title": notification.alertTitle,
-                            @"body": notification.alertBody
+                            @"body": notification.alertBody,
+                            @"userInfo": notification.userInfo.count > 0 ? notification.userInfo : @{ @"empty": @YES}
                          };
   
   [[NSNotificationCenter defaultCenter] postNotificationName:@"onLocalNotification"

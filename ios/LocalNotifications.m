@@ -48,8 +48,8 @@
 // IMPORTANT: prerequisite to enable notifications for your application (otherwise notifications won't fire)
 -(void)registerNotification {
   UIUserNotificationType types =  UIUserNotificationTypeBadge |
-  UIUserNotificationTypeSound |
-  UIUserNotificationTypeAlert;
+                                  UIUserNotificationTypeSound |
+                                  UIUserNotificationTypeAlert;
   
   UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes: types
                                                                              categories: nil];
@@ -67,7 +67,8 @@
 // schedule a local notification (define a title, a body and how many seconds from now before apearing)
 -(void) scheduleLocalNotification: (NSString *) title
                              body: (NSString *) body
-              secondsBeforeAppear: (int) seconds {
+              secondsBeforeAppear: (int) seconds
+                         userInfo: (NSDictionary *) userInfo {
   UILocalNotification *notification = [[UILocalNotification alloc] init];
   
   NSString *notificationTitle = title;
@@ -79,10 +80,14 @@
   int notificationDelay = seconds;
   if (!title) { notificationDelay = 30; } // 30 seconds by default. as an example, 1 hour would be 60*60*24
   
+  NSDictionary *notificationUserInfo = userInfo;
+  if (userInfo.count <= 0) { notificationUserInfo = @{ @"empty": @YES }; }
+  
   
   notification.fireDate = [[NSDate date] dateByAddingTimeInterval: notificationDelay];
   notification.alertTitle = notificationTitle;
   notification.alertBody = notificationBody;
+  notification.userInfo = notificationUserInfo;
   
   [[UIApplication sharedApplication] scheduleLocalNotification: notification];
 }
@@ -90,7 +95,8 @@
 
 // show an immediate local notification (define a title, a body)
 -(void) showLocalNotification: (NSString *) title
-                         body: (NSString *) body  {
+                         body: (NSString *) body
+                     userInfo: (NSDictionary *) userInfo {
   UILocalNotification *notification = [[UILocalNotification alloc] init];
   
   NSString *notificationTitle = title;
@@ -99,8 +105,12 @@
   NSString *notificationBody = body;
   if (!body) { notificationBody = @"Please define a notification body"; }
   
+  NSDictionary *notificationUserInfo = userInfo;
+  if (userInfo.count <= 0) { notificationUserInfo = @{ @"empty": @YES }; }
+  
   notification.alertTitle = notificationTitle;
   notification.alertBody = notificationBody;
+  notification.userInfo = notificationUserInfo;
   
   [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }

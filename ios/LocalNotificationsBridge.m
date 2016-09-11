@@ -13,16 +13,58 @@
 #import "RCTLog.h"
 
 
+
 #ifndef SHOW_RCTLOG
-#define SHOW_RCTLOG 0 // set 1 only for dev debug otherwise 0
+#define SHOW_RCTLOG 1 // set 1 only for dev debug otherwise 0
 #endif
 
 @implementation LocalNotificationsBridge
 
+
 RCT_EXPORT_MODULE();
 
 
+#pragma mark - INIT
+
+-(id) init {
+  self = [super init];
+
+    if (self) {
+      [self startObserving];
+      #if SHOW_RCTLOG
+        RCTLogInfo(@"init add observer to receivedNotification");
+      #endif
+  }
+  return self;
+}
+
+
+#pragma mark - DEALLOC
+
+- (void)dealloc{
+  [self stopObserving];
+}
+
+
 #pragma mark - INNER METHODS
+
+- (NSArray<NSString *> *)supportedEvents{
+  
+  return @[@"onLocalNotification"];
+}
+
+- (void)startObserving
+{
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(receivedLocalNotification:)
+                                               name:@"onLocalNotification"
+                                             object:nil];
+}
+
+- (void)stopObserving
+{
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 // get reference to singleton appDelegate
 - (AppDelegate *) getAppDelegate {
@@ -30,6 +72,24 @@ RCT_EXPORT_MODULE();
   return appDelegate;
 }
 
+// called when received a local notification
+-(void) receivedLocalNotification: (NSNotification *)notification {
+  
+  if ([[notification name] isEqualToString:@"onLocalNotification"]) {
+    
+    NSDictionary *receivedDetails = (NSDictionary *)notification.object;
+    
+    NSString *body = [receivedDetails objectForKey:@"body"];
+    NSString *title = [receivedDetails objectForKey:@"title"];
+    
+    #if SHOW_RCTLOG
+        RCTLogInfo(@"receivedLocalNotification in bridge, will send it to JS with body: '%@' and '%@'", body, title);
+    #endif
+    
+    [self sendEventWithName:@"onLocalNotification"
+                       body:@"message from native"];
+  }
+}
 
 #pragma mark - EXPORTED METHODS
 
@@ -45,8 +105,6 @@ RCT_EXPORT_METHOD(enableLocalNotifications)
     RCTLogInfo(@"'enable' local notifications");
   #endif
   
-  
-
   localNotificationManager.notificationsEnabled = YES;
 }
 

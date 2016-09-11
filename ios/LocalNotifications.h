@@ -53,9 +53,9 @@
 -(void) showLocalNotification: (NSString *) title
                          body: (NSString *) body;
 
-// called when received a local notification
--(void) receivedLocalNotification:(UIApplication *)application
-                            title: (NSString *) title
-                             body: (NSString *) body;
+//// called when received a local notification
+//-(void) receivedLocalNotification:(UIApplication *)application
+//                            title: (NSString *) title
+//                             body: (NSString *) body;
 
 @end

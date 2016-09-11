@@ -8,7 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "RCTBridgeModule.h"
+#import "RCTBridge.h"
+#import "RCTEventDispatcher.h"
+#import "UIKit/UIKit.h"
+#import "RCTEventEmitter.h"
 
-@interface LocalNotificationsBridge : NSObject <RCTBridgeModule>
+@interface LocalNotificationsBridge : RCTEventEmitter <RCTBridgeModule>
 
+//-(void) receivedLocalNotification:(UIApplication *)application
+//                            title: (NSString *) title
+//                             body: (NSString *) body;
 @end

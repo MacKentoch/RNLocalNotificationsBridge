@@ -45,6 +45,10 @@ class RNLocalNotificationsSample extends Component {
       </View>
     );
   }
+
+  onLocalNotification = (notification: any) => {
+    console.log('JS side: received notification: ', notification);
+  }
 }
 
 const styles = StyleSheet.create({

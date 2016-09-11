@@ -53,16 +53,21 @@
 // your code here will be executed when taped on a received a local notification:
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-  NSString* title = notification.alertTitle;
-  NSString* body = notification.alertBody;
+  // set badge number:
+  application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1;
   
-  [_localNotificationsManager receivedLocalNotification: application
-                                                  title: title
-                                                   body: body];
+  
+  NSDictionary *details = @{
+                            @"title": notification.alertTitle,
+                            @"body": notification.alertBody
+                         };
+  
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"onLocalNotification"
+                                                        object:details];
   
   // here show an alert when  receiving a notification:
-  [self showNotificationAlert:body
-                    withTitle:title];
+  [self showNotificationAlert:notification.alertBody
+                    withTitle:notification.alertTitle];
 }
 
 

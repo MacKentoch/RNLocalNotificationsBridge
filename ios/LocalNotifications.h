@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "UIKit/UIKit.h"
-#import "RCTComponent.h"
 
 @interface LocalNotifications : NSObject
 
@@ -52,10 +51,5 @@
 // show an immediate local notification (define a title, a body)
 -(void) showLocalNotification: (NSString *) title
                          body: (NSString *) body;
-
-//// called when received a local notification
-//-(void) receivedLocalNotification:(UIApplication *)application
-//                            title: (NSString *) title
-//                             body: (NSString *) body;
 
 @end

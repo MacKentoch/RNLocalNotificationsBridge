@@ -18,15 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions: (NSDictionary *)launchOptions
 {
- 
-  //////////////////////////////////////////////////////////////////////////
   // instanciate localNotificationsManager:
   _localNotificationsManager = [[LocalNotifications alloc] initWithDefault];
-  //////////////////////////////////////////////////////////////////////////
   
   
   NSURL *jsCodeLocation;
-
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios"
                                                                   fallbackResource:nil];
 
@@ -50,12 +46,10 @@
 }
 
 
-// your code here will be executed when taped on a received a local notification:
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-  // set badge number:
+  // increment badge number:
   application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1;
-  
   
   NSDictionary *details = @{
                             @"title": notification.alertTitle,
@@ -64,46 +58,12 @@
   
   [[NSNotificationCenter defaultCenter] postNotificationName:@"onLocalNotification"
                                                         object:details];
-  
-  // here show an alert when  receiving a notification:
-  [self showNotificationAlert:notification.alertBody
-                    withTitle:notification.alertTitle];
 }
-
-
-// just for example
-- (void)showNotificationAlert:(NSString*)message withTitle:(NSString *)title{
-  dispatch_async(dispatch_get_main_queue(), ^{
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
-                                                                             message:message
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"OK"
-                                                        style:UIAlertActionStyleDefault
-                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                        
-                                                      }]];
-    
-    [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:alertController
-                                                                                     animated:YES completion:^{
-                                                                                     }];
-  });
-}
-
-
-//- (void)applicationWillEnterForeground:(UIApplication *)application {
-//  // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-//  NSLog(@"%s", __PRETTY_FUNCTION__);
-//}
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-  // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-  NSLog(@"%s", __PRETTY_FUNCTION__);
-  
+  // reset badge number:
   application.applicationIconBadgeNumber = 0;
-//  [localNotificationsManager cancelAllLocalNotifications];
-  
 }
 
 @end

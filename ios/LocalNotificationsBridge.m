@@ -24,29 +24,7 @@
 RCT_EXPORT_MODULE();
 
 
-#pragma mark - INIT
-
--(id) init {
-  self = [super init];
-
-    if (self) {
-      [self startObserving];
-      #if SHOW_RCTLOG
-        RCTLogInfo(@"init add observer to receivedNotification");
-      #endif
-  }
-  return self;
-}
-
-
-#pragma mark - DEALLOC
-
-- (void)dealloc{
-  [self stopObserving];
-}
-
-
-#pragma mark - INNER METHODS
+#pragma RCTEventEmitter implement
 
 - (NSArray<NSString *> *)supportedEvents{
   
@@ -66,13 +44,15 @@ RCT_EXPORT_MODULE();
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - INNER METHODS
+
 // get reference to singleton appDelegate
 - (AppDelegate *) getAppDelegate {
   AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
   return appDelegate;
 }
 
-// called when received a local notification
+// called when received a local notification (see startObserving observing upper)
 -(void) receivedLocalNotification: (NSNotification *)notification {
   
   if ([[notification name] isEqualToString:@"onLocalNotification"]) {
@@ -90,6 +70,8 @@ RCT_EXPORT_MODULE();
                        body:receivedDetails];
   }
 }
+
+
 
 #pragma mark - EXPORTED METHODS
 

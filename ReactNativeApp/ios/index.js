@@ -4,14 +4,18 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  AlertIOS
 }                           from 'react-native';
 import {
   LocalNotificationsManager,
   LocalNotificationEvents
 }                           from '../common/bridge';
 
+
 LocalNotificationsManager.enableLocalNotifications();
+
+// IMPORTANT: tell iOS
 LocalNotificationsManager.registerNotification();
 
 class RNLocalNotificationsSample extends Component {
@@ -53,6 +57,11 @@ class RNLocalNotificationsSample extends Component {
 
   onLocalNotification = (notification: any) => {
     console.log('JS side: received notification: ', notification);
+
+    AlertIOS.alert(
+      notification.title,
+      notification.body,
+    );
   }
 }
 

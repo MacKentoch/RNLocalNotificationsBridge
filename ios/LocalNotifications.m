@@ -105,14 +105,5 @@
   [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
-//// called when received a local notification
-//-(void) receivedLocalNotification:(UIApplication *)application
-//                            title: (NSString *) title
-//                             body: (NSString *) body {
-//  
-//  // increment application badge number
-//  application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1;
-//}
-
 
 @end

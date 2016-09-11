@@ -17,7 +17,7 @@
 -(id) initWithDefault {
   self = [super init];
   
-  _notificationsEnabled = NO;
+  _notificationsEnabled = YES;
   
   return self;
 }

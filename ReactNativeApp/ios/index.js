@@ -13,10 +13,12 @@ import {
 }                           from '../common/bridge';
 
 
-LocalNotificationsManager.enableLocalNotifications();
-
-// IMPORTANT: tell iOS
+// IMPORTANT:
 LocalNotificationsManager.registerNotification();
+
+
+// LocalNotificationsManager.disableLocalNotifications();
+// LocalNotificationsManager.enableLocalNotifications();
 
 class RNLocalNotificationsSample extends Component {
   componentDidMount() {

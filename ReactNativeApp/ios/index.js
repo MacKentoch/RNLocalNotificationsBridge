@@ -131,17 +131,18 @@ class RNLocalNotificationsSample extends Component {
         <Text style={styles.notificationBody}>
           {body}
         </Text>
-        {
-          occured
-          ? false &&
-          <Text style={styles.notificationStatus}>
-            ...
-          </Text>
-          : true &&
-          <Text style={styles.notificationStatus}>
-            done
-          </Text>
-        }
+          {
+            !occured &&
+            <Text style={styles.notificationStatus}>
+              ...
+            </Text>
+          }
+          {
+            occured &&
+            <Text style={styles.notificationStatus}>
+              done
+            </Text>
+          }
       </View>
     );
   }
@@ -157,7 +158,26 @@ class RNLocalNotificationsSample extends Component {
   }
 
   onLocalNotification = (notification) => {
-    console.log('received notification: ', notification);
+    const { notifications, dataSource } = this.state;
+    // update occured flag for received notification:
+    const updatedNotifications = notifications.map(
+      notif => {
+        // compare with id stored in notification.userInfo:
+        if (notif.id === notification.userInfo.id) {
+          const updatedNotif = {...notif};
+          updatedNotif.occured = true;
+          return updatedNotif;
+        } else {
+          return {...notif};
+        }
+      }
+    );
+
+    this.setState({
+      notifications: updatedNotifications,
+      dataSource: dataSource.cloneWithRows(updatedNotifications)
+    });
+
     AlertIOS.alert(
       notification.title,
       notification.body,

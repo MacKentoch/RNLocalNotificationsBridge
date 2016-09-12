@@ -63,6 +63,12 @@
   [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
+// resets badge number to 0
+-(void) resetNotificationBadgeNumber {
+  UIApplication *application = [UIApplication sharedApplication];
+  application.applicationIconBadgeNumber = 0;
+}
+
 
 // schedule a local notification (define a title, a body and how many seconds from now before apearing)
 -(void) scheduleLocalNotification: (NSString *) title

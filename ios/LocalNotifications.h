@@ -43,6 +43,9 @@
 // cancel all local notifications
 -(void) cancelAllLocalNotifications;
 
+// resets badge number to 0
+-(void) resetNotificationBadgeNumber;
+
 // schedule a local notification (define a title, a body and how many seconds from now before apearing)
 -(void) scheduleLocalNotification: (NSString *)title
                              body: (NSString *)body

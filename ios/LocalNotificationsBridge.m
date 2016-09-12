@@ -174,5 +174,18 @@ RCT_EXPORT_METHOD(showLocalNotification: (NSString *) title body:(NSString *) bo
                                          userInfo:userInfo];
 }
 
+RCT_EXPORT_METHOD(resetNotificationBadgeNumber) {
+  AppDelegate *appDelegate = [self getAppDelegate];
+  
+  LocalNotifications *localNotificationManager = appDelegate.localNotificationsManager;
+  if (!localNotificationManager) {return; }
+  
+  #if SHOW_RCTLOG
+    RCTLogInfo(@"'resets badge number");
+  #endif
+  
+  [localNotificationManager resetNotificationBadgeNumber];
+};
+
 
 @end

@@ -57,6 +57,9 @@ class RNLocalNotificationsSample extends Component {
   }
 
   componentDidMount() {
+    // // mounting this component resets badge number
+    // LocalNotificationsManager.resetNotificationBadgeNumber();
+
     // add a listener to handle received notifications
     LocalNotificationEvents.addListener(
       'onLocalNotification',
